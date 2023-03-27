@@ -12,11 +12,14 @@ public class RayMark : MonoBehaviour
     {
         if (mPhysicsLayer == 0)
         {
+            //获取SpatialAwarenessSystem的配置文件
             var spatialMappingConfig = CoreServices.SpatialAwarenessSystem.ConfigurationProfile as MixedRealitySpatialAwarenessSystemProfile;
             if (spatialMappingConfig != null)
             {
+                //遍历所有现有的配置文件
                 foreach (var config in spatialMappingConfig.ObserverConfigurations)
                 {
+                    //将配置文件类型转化为MixedRealitySpatialAwarenessMeshObserverProfile
                     var observerProfile = config.ObserverProfile as MixedRealitySpatialAwarenessMeshObserverProfile;
                     if (observerProfile != null)
                     {
@@ -45,8 +48,6 @@ public class RayMark : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      
-
     }
 
     // Update is called once per frame
@@ -56,6 +57,5 @@ public class RayMark : MonoBehaviour
         {
             SetMarkOnSpatialMap();
         }
-        
     }
 }
